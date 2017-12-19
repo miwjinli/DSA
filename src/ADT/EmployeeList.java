@@ -7,7 +7,6 @@ package ADT;
 
 import domain.DeliveryMan;
 import domain.Employee;
-import domain.WorkStatus;
 
 /**
  *
