@@ -600,8 +600,8 @@ public class MainProgram {
             String CurrentAvailable = "Not Yet Clock-In";
             String CurrentLocation = "None";
             double rating = 0.0;
-            int totalRated = 0;
-            DeliveryMan DM = new DeliveryMan(0, CurrentAvailable, CurrentLocation, rating, totalRated, ID, Pw, Name, IC, PhNo, Gender, Adds, Email, Position, WorkingStatus, Salary, Salary, joinDate);
+            int totalRateReceived = 0;
+            DeliveryMan DM = new DeliveryMan(0, CurrentAvailable, CurrentLocation, rating, totalRateReceived, ID, Pw, Name, IC, PhNo, Gender, Adds, Email, Position, WorkingStatus, Salary, Salary, joinDate);
             boolean success = DMList.addWithICValidation(DM);
             if (success) {
                 return true;
@@ -808,6 +808,10 @@ public class MainProgram {
             }
         }
     }
+    
+    //ToDo
+    public void CustomerFeedBackRating(){
+    }  
     //Miw End
 
     public static void main(String[] args) {
@@ -821,6 +825,7 @@ public class MainProgram {
         MP.HRList.add(new HR(1, "HR000001", "123456", "Ong Ong Jun", "970707-07-0707", "010-2255533", 'M', "Jalan Prima Setapak, KL", "OngOngJun@hotmail.com", "HR", "Employed", 3500, 3750, HRjoinDate));
         MP.ADList.add(new Admin(20000, "AD000001", "123456", "ABC", "123456678", "012-345678", 'M', "22A, Deaman Ap, KL", "E@e.com", "Admin", "Employed", 6000, 6000, ADjoinDate));
         MP.wsList.add(new WorkStatus("WS000001", HRjoinDate, DMjoinDate, 0, 0, MP.DMList.get(1)));
+
         MP.menu();
         // TODO code application logic here
         /*Calendar date3 = Calendar.getInstance();

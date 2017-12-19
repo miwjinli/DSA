@@ -258,9 +258,9 @@ public class EmployeeList<T> implements EmployeeListInterface<T> {
         for (int i = 1; i <= TotalEntries; i++) {
             DeliveryMan DM = (DeliveryMan) currentNode.data;
             if (DM.getStaffID().equals(StaffID)) {
-                Double Rating = ((DM.getRating() * DM.getTotalRated()) + rating) / (DM.getTotalRated() + 1);
+                Double Rating = ((DM.getRating() * DM.getTotalRateReceived()) + rating) / (DM.getTotalRateReceived() + 1);
                 DM.setRating(Rating);
-                DM.setTotalRated(DM.getTotalRated() + 1);
+                DM.setTotalRateReceived(DM.getTotalRateReceived() + 1);
                 currentNode.data = (T) DM;
                 return true;
             }
