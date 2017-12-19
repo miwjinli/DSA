@@ -21,7 +21,7 @@ public class MainProgram {
     EmployeeListInterface<DeliveryMan> DMList = new EmployeeList<>();
     EmployeeListInterface<Admin> ADList = new EmployeeList<>();
     EmployeeListInterface<HR> HRList = new EmployeeList<>();
-    ArrayList<WorkStatus> wsList = new ArrayList<>();
+    EmployeeListInterface<WorkStatus> wsList = new EmployeeList<>();
     private Employee loginStaff;
     Scanner s = new Scanner(System.in);
 
@@ -334,7 +334,7 @@ public class MainProgram {
                                     try {
                                         if (Character.toUpperCase(confirm.charAt(0)) == 'Y') {
                                             boolean remove = true;
-                                            for (int i = 0; i < wsList.size(); i++) {
+                                            for (int i = 1; i <= wsList.getTotalEntries(); i++) {
                                                 if (e.getStaffID().equals(wsList.get(i).getDM().getStaffID())) {
                                                     remove = false;
                                                 }
@@ -344,7 +344,9 @@ public class MainProgram {
                                                 if (e instanceof DeliveryMan) {
                                                     removeSuccessfully = DMList.removeStaff(e.getStaffID());
                                                 } else if (e instanceof HR) {
-                                                    removeSuccessfully = HRList.removeStaff(e.getStaffID());
+                                                    if (!loginStaff.getStaffID().equals(e.getStaffID())) {
+                                                        removeSuccessfully = HRList.removeStaff(e.getStaffID());
+                                                    }
                                                 } else {
                                                     removeSuccessfully = ADList.removeStaff(e.getStaffID());
                                                 }
