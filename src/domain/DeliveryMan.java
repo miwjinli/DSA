@@ -17,22 +17,26 @@ public class DeliveryMan extends Employee {
     private String CurrentAvailable;
     private String CurrentLocation;
     private double rating;
+    private int TotalRated;
 
     public DeliveryMan() {
     }
 
-    public DeliveryMan(int TotalPendingDelivery, String CurrentAvailable, String CurrentLocation) {
+    public DeliveryMan(int TotalPendingDelivery, String CurrentAvailable, String CurrentLocation,double rating, int TotalRated) {
         this.TotalPendingDelivery = TotalPendingDelivery;
         this.CurrentAvailable = CurrentAvailable;
         this.CurrentLocation = CurrentLocation;
+        this.rating = rating;
+        this.TotalRated = TotalRated;
     }
 
-    public DeliveryMan(int TotalPendingDelivery, String CurrentAvailable, String CurrentLocation, double rating, String StaffID, String StaffPw, String StaffName, String StaffIC, String StaffPhNo, char StaffGender, String StaffAdds, String StaffEmail, String StaffPosition, String WorkingStatus, double BasicSalary, double TotalPay, Calendar joinDate) {
+    public DeliveryMan(int TotalPendingDelivery, String CurrentAvailable, String CurrentLocation, double rating, int TotalRated, String StaffID, String StaffPw, String StaffName, String StaffIC, String StaffPhNo, char StaffGender, String StaffAdds, String StaffEmail, String StaffPosition, String WorkingStatus, double BasicSalary, double TotalPay, Calendar joinDate) {
         super(StaffID, StaffPw, StaffName, StaffIC, StaffPhNo, StaffGender, StaffAdds, StaffEmail, StaffPosition, WorkingStatus, BasicSalary, TotalPay, joinDate);
         this.TotalPendingDelivery = TotalPendingDelivery;
         this.CurrentAvailable = CurrentAvailable;
         this.CurrentLocation = CurrentLocation;
         this.rating = rating;
+        this.TotalRated = TotalRated;
     }
 
     public int getTotalPendingDelivery() {
@@ -66,6 +70,16 @@ public class DeliveryMan extends Employee {
     public void setRating(double rating) {
         this.rating = rating;
     }
+
+    public int getTotalRated() {
+        return TotalRated;
+    }
+
+    public void setTotalRated(int TotalRated) {
+        this.TotalRated = TotalRated;
+    }
+    
+    
 
     @Override
     public void calculateSalary() {
