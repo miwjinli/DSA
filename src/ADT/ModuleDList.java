@@ -26,12 +26,6 @@ public class ModuleDList<T> implements ModuleDInterface<T>
         private Node(Node previous, T data) {this.data = data; this.previous = previous;}
 
         private Node(Node previous, T data, Node next) {this.data = data; this.previous = previous; this.next = next;}
-        
-        private void setData(T data) {this.data = data;}
-        
-        private void setNext(Node next) {this.next = next;}
-        
-        private void setPrevious(Node previous) {this.previous = previous;}
     }
     
     //Basic Operation===============================
@@ -74,7 +68,7 @@ public class ModuleDList<T> implements ModuleDInterface<T>
         return getResult;
     }
     
-    @Override
+    /**@Override
     public boolean update(int position, T UpdateItem)
     {
         if(position >= 1 && position <= TotalEntries)
@@ -103,7 +97,7 @@ public class ModuleDList<T> implements ModuleDInterface<T>
         {
             return false;
         }
-    }
+    }**/
     
     @Override
     public int getTotalEntries() 
@@ -111,7 +105,7 @@ public class ModuleDList<T> implements ModuleDInterface<T>
         return TotalEntries;
     }
     
-    @Override
+    /**@Override
     public T remove(int position) 
     {
         T result = null;
@@ -148,9 +142,7 @@ public class ModuleDList<T> implements ModuleDInterface<T>
             TotalEntries--;
         }
         return result;
-    }
-    
-    
+    }**/
     
     @Override
     public boolean isEmpty()
@@ -158,13 +150,13 @@ public class ModuleDList<T> implements ModuleDInterface<T>
         return TotalEntries == 0;
     }
     
-    @Override
+    /**@Override
     public void clear() 
     {
         firstNode = null;
         lastNode = null;
         TotalEntries = 0;
-    }
+    }**/
     //Basic Operation===============================
     //==============================================
     
@@ -195,20 +187,6 @@ public class ModuleDList<T> implements ModuleDInterface<T>
             currentNode = currentNode.next;
         }
         return updated;
-    }
-    
-    public void displayPendingDeliverOrder(String DMID)
-    {
-        Node currentNode = firstNode;
-        
-        for (int i = 1 ; i <= TotalEntries ; i++) 
-        {
-            DeliveryOrder DO = (DeliveryOrder) currentNode.data;
-            if (DO.getWS().getDM().getStaffID().equals(DMID) && DO.getDeliveryStatus().equals("Pending")) 
-            {
-                System.out.println(DO.getOrder().getOrdersID());
-            }
-        }
     }
     
     @Override
@@ -405,7 +383,7 @@ public class ModuleDList<T> implements ModuleDInterface<T>
         }
     }
     
-    @Override
+    /**@Override
     public void display()
     {
         int i=1;
@@ -424,7 +402,7 @@ public class ModuleDList<T> implements ModuleDInterface<T>
             i++;
         }
         System.out.println(TotalEntries+". "+currentNode.data.toString());
-    }
+    }**/
     
     @Override
     public void SortTotalDelivery()

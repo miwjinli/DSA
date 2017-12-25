@@ -3050,11 +3050,90 @@ public class MainProgram {
         }
     }
     
+    /**public void displayCustomerDeliverOrderInTable(String CustID)
+    {
+        if(!CLDOrderList.isEmpty()) 
+        {
+            int No = 1;
+            boolean line = false;
+            //Node currentNode = firstNode;
+            //DeliveryOrder DOHeader = (DeliveryOrder) currentNode.data;
+
+            for(int j=1 ; j<= CLDOrderList.getTotalEntries() ; j++)
+            {
+                if(CLDOrderList.get(j).getOrder().getCustomer().getCustID().equals(CustID))
+                {
+                    System.out.println("\n\nName : " + CLDOrderList.get(j).getOrder().getCustomer().getCustName());
+                    System.out.println("Area : " + CLDOrderList.get(j).getOrder().getCustomer().getCustArea());
+                    System.out.println("\nYour Pending Orders : ");
+                    System.out.println("*****************************************************************************************************");
+                    System.out.printf("* %3s. * %10s * %16s * %20s * %12s * %20s *\n", "No", "Order ID", "Restaurant Name", "DeliveryMan Name", "Total Price", "Time Remain");
+                    System.out.println("*****************************************************************************************************");
+                
+                    for (int i = 1 ; i <= CLDOrderList.getTotalEntries() ; i++) 
+                    {
+                        if (CLDOrderList.get(i).getOrder().getCustomer().getCustID().equals(CustID) && CLDOrderList.get(i).getOrder().getOrderStatus().equals("3"))
+                        {
+                            int difMinutes = 0;
+                            int difHours = 0;
+                            int diff = 0;
+
+                            try 
+                            {
+                                Date d1 = CLDOrderList.get(i).getDeliveredDate().getTime();//assign time
+                                Date d2 = Calendar.getInstance().getTime();//current time
+
+                                //in milliseconds
+                                diff = (int)(d1.getTime() - d2.getTime());
+
+                                difMinutes = diff / (60 * 1000) % 60;
+                                difHours = diff / (60 * 60 * 1000) % 24;
+                            }
+                            catch (Exception e) 
+                            {
+                                e.printStackTrace();
+                            }
+
+                            //System.out.println(No+". "+DO.timeRemainToString());
+                            if(No == 1){System.out.println("*      *            *                  *                      *              *                      *");}
+                            String TotalPrice;
+                            String difTime;
+                            TotalPrice = String.format("RM %5.2f", CLDOrderList.get(i).getOrder().getTotal());
+                            difTime = String.format(difHours + " hours " + difMinutes + " minutes");
+                            //System.out.println(No+". "+DO.toString());
+                            System.out.printf("* %3s. * %10s * %16s * %20s * %12s * %20s *\n", No, CLDOrderList.get(i).getOrder().getOrdersID(), CLDOrderList.get(i).getOrder().getRestaurant().getRestaurantName(), CLDOrderList.get(i).getWS().getDM().getStaffName(), TotalPrice, difTime);
+                            line = true;
+                            No++;
+                        }
+                    }
+                    if(line){System.out.println("*      *            *                  *                      *              *                      *");}
+
+                    if(No == 1)
+                    {
+                        System.out.println("*                                                                                                   *");
+                        System.out.println("*                                    No Have Any Pending Order                                      *");
+                        System.out.println("*                                                                                                   *");
+                    }
+                    System.out.println("*****************************************************************************************************");
+                }
+            }
+        }
+        else
+        {
+            System.out.println("*****************************************");
+            System.out.println("*                                       *");
+            System.out.println("*     No Have Any Order Deliver Yet     *");
+            System.out.println("*                                       *");
+            System.out.println("*****************************************");
+        }
+    }**/
+    
     public void GenerateDeliveryManTotalDeliverReport()
     {
         ModuleDInterface<WorkStatus> CLWSList = new ModuleDList<>();
         for(int j=1 ; j<= wsList.getTotalEntries() ; j++){CLWSList.add(wsList.get(j));}
         
+        CLWSList.SortTotalDelivery();
         Calendar curCal = Calendar.getInstance();
         Scanner sc = new Scanner(System.in);
         java.text.DateFormat dateFormat = new java.text.SimpleDateFormat("dd/MM/yyyy");
