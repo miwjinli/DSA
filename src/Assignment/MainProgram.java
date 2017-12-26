@@ -611,7 +611,7 @@ public class MainProgram {
             if (success) {
                 return true;
             } else {
-                System.out.println("Error! The IC have been used!\nPress Enter to Continue...");
+                System.out.println("Error! The ID or IC have been used!\nPress Enter to Continue...");
                 s.nextLine();
                 return false;
             }
@@ -640,7 +640,7 @@ public class MainProgram {
             if (success) {
                 return true;
             } else {
-                System.out.println("Error! The IC have been used!\nPress Enter to Continue...");
+                System.out.println("Error! The ID or IC have been used!\nPress Enter to Continue...");
                 s.nextLine();
                 return false;
             }
@@ -685,7 +685,7 @@ public class MainProgram {
             if (success) {
                 return true;
             } else {
-                System.out.println("Error! The IC have been used!\nPress Enter to Continue...");
+                System.out.println("Error! The ID or IC have been used!\nPress Enter to Continue...");
                 s.nextLine();
                 return false;
             }
